@@ -1,13 +1,15 @@
 # jsonRPCProject
 Parameter Args struct has two variables, X and Y <BR/>
 Supporting methods and descriptions are listed below: <BR/>
-Create   : Set m[x] = y. Key should not already exist in map. <BR/>
-Delete   : Delete m[x] <BR/>
-Set      : Set m[x] = y. Key should already exist in map. <BR/>
-Add      : Return m[x] + m[y] <BR/>
-Subtract : Return m[x] - m[y] <BR/>
-Multiply : Return m[x] * m[y] <BR/>
-Divide   : Return m[x] / m[y], resolution is 2^-16 <BR/>
+Server has a map m to store value.
+
+Create   : Set m[X] = Y. Key should not already exist in m. <BR/>
+Delete   : Delete m[X] <BR/>
+Set      : Set m[X] = Y. Key should already exist in m. <BR/>
+Add      : Return m[X] + m[Y], both X and Y should already exist in m.<BR/>
+Subtract : Return m[X] - m[Y], both X and Y should already exist in m. <BR/>
+Multiply : Return m[X] * m[Y], both X and Y should already exist in m. <BR/>
+Divide   : Return m[X] / m[Y], both X and Y should already exist in m. Resolution is 2^-16. <BR/>
 
 Code Description: <BR/>
 server.go : Open a json-rpc server <BR/>
