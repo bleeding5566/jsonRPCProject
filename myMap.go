@@ -1,4 +1,3 @@
-
 package main
 
 import "sync"
@@ -19,14 +18,12 @@ func (m myMap) SetMap(k string, v Num){
 	m.Data[k] = v
 }
 
-
 func (m myMap) GetMap(k string) (Num, bool){
 	m.Lock.RLock()
 	defer m.Lock.RUnlock()
 	val, ok := m.Data[k]
 	return val, ok 
 }
-
 
 func (m myMap) DeleteMap(k string){
 	m.Lock.Lock()

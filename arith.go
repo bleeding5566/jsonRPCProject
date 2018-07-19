@@ -1,4 +1,3 @@
-
 package main
 
 import "errors"
@@ -7,7 +6,6 @@ type Args struct {
 	X, Y string
 }
 
-
 type Arith struct{}	
 
 var m = NewMap()
@@ -15,24 +13,18 @@ var m = NewMap()
 func (t *Arith) Create(args *Args, reply *string) error{
 	p1 := args.X
 	p2 := args.Y
-	
 	_, ok :=  m.GetMap(p1)
 	if ok {
 		return errors.New("First Key exists, please use set")
 	}
-	
 	p2Num, ok := check(p2)
-	
 	if !ok {
 		return errors.New("Second value is not valid number")
 	}
-	
 	m.SetMap(p1, p2Num)
-	
 	*reply = "Create successfully ."
 	return nil
 }
-
 
 func (t *Arith) Delete(args *Args, reply *string) error{
 	p1 := args.X
@@ -62,8 +54,6 @@ func (t *Arith) Set(args *Args, reply *string) error{
 	return nil
 }
 
-
-
 func (t *Arith) Add(args *Args, reply *string) error{
 	p1 := args.X
 	p2 := args.Y
@@ -79,7 +69,6 @@ func (t *Arith) Add(args *Args, reply *string) error{
 	return nil
 	
 }
-
 
 func (t *Arith) Subtract(args *Args, reply *string) error{
 	p1 := args.X

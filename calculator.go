@@ -11,8 +11,6 @@ type Num struct{
 	Sign          bool
 }
 
-
-
 func smaller(s1, s2 string) bool{
     if len(s1) < len(s2){
         return true
@@ -27,7 +25,6 @@ func smaller(s1, s2 string) bool{
     }
     return false
 }
-
 
 func divString(s1, s2 string) string{
     var ret = ""
@@ -86,7 +83,6 @@ func divNum(s1Num,s2Num Num) string{
     return ret
 }
 
-
 func mutString(s1,s2 string) string{
     s1Len  := len(s1)
     s2Len  := len(s2)
@@ -111,7 +107,6 @@ func mutString(s1,s2 string) string{
 }
 
 
-
 func mutNum(s1Num,s2Num Num) string{
     s1, s2, lenAfterPoint := matchPoint(s1Num, s2Num)
 	s1Sign := s1Num.Sign
@@ -127,7 +122,6 @@ func mutNum(s1Num,s2Num Num) string{
     }
     return ret
 }
-
 
 func subString(s1,s2 string) (string, bool){
 	if smaller(s1,s2) {
@@ -201,7 +195,6 @@ func addString(s1,s2 string) string{
             s1Digit = int(s1[s1Idx] - '0')
             s1Idx--
         }
-        
         if s2Idx >=0 {
             s2Digit = int(s2[s2Idx] - '0')
             s2Idx--
@@ -217,7 +210,6 @@ func addString(s1,s2 string) string{
     }
     return ret
 }
-
 
 func addNum(s1Num,s2Num Num) string{
 	s1, s2, lenAfterPoint := matchPoint(s1Num, s2Num)
@@ -264,7 +256,6 @@ func removeZeros(s string) string{
     s = s[start:end+1]
     return s
 }
-
 
 func check(s string) (Num , bool){
     PointExist := false
