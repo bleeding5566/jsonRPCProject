@@ -1,4 +1,3 @@
-agfarebtarebtahbtabtaeta
 package main
 
 import (
