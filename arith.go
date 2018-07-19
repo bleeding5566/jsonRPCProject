@@ -28,7 +28,7 @@ func (t *Arith) Create(args *Args, reply *string) error{
 	}
 	
 	m.SetMap(p1, p2Num)
-
+	
 	*reply = "Create successfully ."
 	return nil
 }
@@ -77,7 +77,7 @@ func (t *Arith) Add(args *Args, reply *string) error{
 	}
 	*reply = addNum(p1Num, p2Num)
 	return nil
-
+	
 }
 
 

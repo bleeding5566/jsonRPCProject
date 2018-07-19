@@ -1,15 +1,14 @@
 package main
 
 import(
-  
-    "unicode"
-    "strconv"
+	"unicode"
+	"strconv"
 ) 
 
 type Num struct{
-    IntNum        string
-    LenAfterPoint int
-    Sign          bool
+	IntNum        string
+	LenAfterPoint int
+	Sign          bool
 }
 
 

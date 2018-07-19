@@ -4,7 +4,7 @@ package main
 import "sync"
 
 type myMap struct{
-    Data map[string]Num
+	Data map[string]Num
 	Lock sync.RWMutex
 }
 
