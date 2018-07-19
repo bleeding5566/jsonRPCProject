@@ -8,3 +8,9 @@ Add      : Return m[x] + m[y] <BR/>
 Subtract : Return m[x] - m[y] <BR/>
 Multiply : Return m[x] * m[y] <BR/>
 Divide   : Return m[x] / m[y], resolution is 2^-16 <BR/>
+
+Code Description: <BR/>
+server.go : Open a json-rpc server <BR/>
+arith.go : json-rpc method <BR/>
+calculator.go : calculate addition/subtraction/mutiplication/division <BR/>
+myMap.go : Define map stored in server <BR/>
