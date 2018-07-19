@@ -42,7 +42,7 @@ func (t *Arith) Delete(args *Args, reply *string) error{
 		return nil
 	}
 	m.DeleteMap(p1)
-	*reply = "delate."
+	*reply = "Delete successfully."
 	return nil
 }
 
