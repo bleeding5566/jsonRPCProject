@@ -298,7 +298,7 @@ func check(s string) (Num , bool){
 	// all zeros
 	if (len(IntNum)==2 && IntNum[0]=='0' && IntNum[1]=='0') || (len(IntNum)==1 && IntNum[0]=='0'){
 		SNum.LenAfterPoint = 0
-		SNum.IntNum = '0'
+		SNum.IntNum = "0"
 		SNum.Sign = false
 		return SNum, true
 	}
