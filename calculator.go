@@ -46,16 +46,16 @@ func divString(s1, s2 string) string{
 			// Remove Front Zeros 
 			for ; zeroIdx<len(rem)-1;zeroIdx++{
 				if rem[zeroIdx]!='0'{
-                    			break
+					break
 				}
 			}
 			rem = rem[zeroIdx:]
 		}
-		ret+= strconv.Itoa(tmp)
-			if rem=="0"{
-				break
-			} else{
-				if i==len(s1){
+		ret += strconv.Itoa(tmp)
+		if rem == "0"{
+			break
+		} else{
+			if i==len(s1){
 				ret+="."
 				rem+="0"
 			} else if i<len(s1){
