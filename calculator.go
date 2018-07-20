@@ -244,7 +244,7 @@ func removeZeros(s string) string{
 	end := len(s) - 1
 	for ; start < PIdx-1; start++{
 		if s[start] != '0'{
-		break
+			break
 		}
 	}
 	for ; end > PIdx+1; end--{
