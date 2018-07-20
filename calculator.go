@@ -22,8 +22,8 @@ func smaller(s1, s2 string) bool{
 			} else if s1[i]<s2[i]{
 				return true
 			}
-        	}
-    	}
+		}
+	}
 	return false
 }
 
@@ -104,7 +104,7 @@ func mutString(s1,s2 string) string{
 		}
 		ret = ret[:s1Idx] + strconv.Itoa(carry) + ret[s1Idx+1:]
 	}
-    	return ret
+	return ret
 }
 
 
@@ -260,7 +260,6 @@ func check(s string) (Num , bool){
 	PointExist := false
 	SNum := Num{}
 	IntNum := ""
-	LenAfterPoint := 0
 	Sign := false
 	if s[0] == '-'{
 		s = s[1:]
@@ -281,20 +280,20 @@ func check(s string) (Num , bool){
 		}
 	}
 	// No number exist 
-    	if len(IntNum)==0{
-        	return SNum, false
-    	}
+	if len(IntNum)==0{
+		return SNum, false
+	}
 	IntNum = removeZeros(IntNum)
 	i := 0
 	for ; i < len(IntNum) ; i++ {
-		if IntNum[i]=='.'{
+		if IntNum[i] == '.'{
 			break
 		}
 	}
 	SNum.LenAfterPoint = len(IntNum) - i
 	IntNum = IntNum[:i] + IntNum[i+1:]
 	// all zeros
-	if len(IntNum)==2 && IntNum[0]=='0' && IntNum[1]=='0' {
+	if (len(IntNum)==2 && IntNum[0]=='0' && IntNum[1]=='0') || (len(IntNum)==1 && IntNum[0]=='0'){
 		SNum.LenAfterPoint = 0
 		SNum.IntNum = '0'
 		SNum.Sign = false
