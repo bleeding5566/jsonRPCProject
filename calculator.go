@@ -261,6 +261,9 @@ func check(s string) (Num , bool){
 	SNum := Num{}
 	IntNum := ""
 	Sign := false
+	if s[len(s)-1]=='.' {
+		return SNum, false
+	}
 	if s[0] == '-'{
 		s = s[1:]
 		Sign = true
