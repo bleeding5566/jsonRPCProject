@@ -16,3 +16,4 @@ server.go : Open a json-rpc server <BR/>
 arith.go : json-rpc method <BR/>
 calculator.go : calculate addition/subtraction/mutiplication/division <BR/>
 myMap.go : Define map stored in server <BR/>
+checkFormat.go : Check input is valid or not and remove redundant zeros <BR/>
