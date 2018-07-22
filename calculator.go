@@ -2,7 +2,6 @@
 package main
 
 import(
-	"unicode"
 	"strconv"
 ) 
 
@@ -30,6 +29,8 @@ func smaller(s1, s2 string) bool{
 func divString(s1, s2 string) string{
 	var ret = ""
 	var i int
+	s1 = removeZeros(s1)
+	s2 = removeZeros(s2)
 	if len(s1) > len(s2){
 		i = len(s2)
 	} else {
@@ -42,33 +43,28 @@ func divString(s1, s2 string) string{
 		for !smaller(rem,s2){
 			tmp++
 			rem, _ = subString(rem,s2)
-			zeroIdx :=0
-			// Remove Front Zeros 
-			for ; zeroIdx<len(rem)-1;zeroIdx++{
-				if rem[zeroIdx]!='0'{
-					break
-				}
-			}
-			rem = rem[zeroIdx:]
+			rem = removeZeros(rem)
 		}
 		ret += strconv.Itoa(tmp)
-		if rem == "0"{
+		if rem == "0" && i >= len(s1){
 			break
-		} else{
-			if i==len(s1){
-				ret+="."
-				rem+="0"
-			} else if i<len(s1){
-				rem+=string(s1[i])
-			} else {
-				rem+="0"
-				lenAfterPoint++
-			}
-			i++
 		}
+		if i == len(s1){
+			ret += "."
+			rem += "0"
+		} else if i < len(s1){
+			if rem == "0" {
+				rem = string(s1[i])
+			} else {
+				rem += string(s1[i])
+			}
+		} else {
+			rem += "0"
+			lenAfterPoint++
+		}
+		i++
 	}
-	ret = removeZeros(ret)
-	return ret
+	return removeZeros(ret)
 }
 
 func divNum(s1Num,s2Num Num) string{
@@ -231,80 +227,6 @@ func addNum(s1Num,s2Num Num) string{
 		ret = "-" + ret
 	}
 	return ret
-}
-
-func removeZeros(s string) string{
-	PIdx:=0
-	for ; PIdx<len(s); PIdx++{
-		if s[PIdx] == '.'{
-			break
-		}
-	}
-	start := 0
-	end := len(s) - 1
-	for ; start < PIdx-1; start++{
-		if s[start] != '0'{
-			break
-		}
-	}
-	for ; end > PIdx+1; end--{
-		if s[end] != '0'{
-			break
-		}
-	}
-	s = s[start:end+1]
-	return s
-}
-
-func check(s string) (Num , bool){
-	PointExist := false
-	SNum := Num{}
-	IntNum := ""
-	Sign := false
-	if s[len(s)-1]=='.' {
-		return SNum, false
-	}
-	if s[0] == '-'{
-		s = s[1:]
-		Sign = true
-	}
-	for _,ch := range(s){
-		if ch =='.'{
-			if PointExist{
-				return SNum, false
-			} else{
-				PointExist = true
-				IntNum += "."
-			}
-		} else if !unicode.IsDigit(ch){
-			return SNum, false
-		} else{
-			IntNum += string(ch)
-		}
-	}
-	// No number exist 
-	if len(IntNum)==0{
-		return SNum, false
-	}
-	IntNum = removeZeros(IntNum)
-	i := 0
-	for ; i < len(IntNum) ; i++ {
-		if IntNum[i] == '.'{
-			break
-		}
-	}
-	SNum.LenAfterPoint = len(IntNum) - i
-	IntNum = IntNum[:i] + IntNum[i+1:]
-	// all zeros
-	if (len(IntNum)==2 && IntNum[0]=='0' && IntNum[1]=='0') || (len(IntNum)==1 && IntNum[0]=='0'){
-		SNum.LenAfterPoint = 0
-		SNum.IntNum = "0"
-		SNum.Sign = false
-		return SNum, true
-	}
-	SNum.IntNum = IntNum
-	SNum.Sign = Sign
-	return SNum, true
 }
 
 func matchPoint(s1Num,s2Num Num) (string, string, int){
